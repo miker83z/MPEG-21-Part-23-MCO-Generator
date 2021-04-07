@@ -1,7 +1,8 @@
+const rdf = require('rdflib');
 const lut = require('./lookup-tables').AllClasses;
 const generators = require('./generators/');
 
-const generator = (classData, payload, mediaContractualObjects) => {
+const generator = (classData, payload) => {
   switch (classData[1]) {
     case 'Action':
       return generators.generateAction(classData[0], payload);
@@ -14,7 +15,6 @@ const generator = (classData, payload, mediaContractualObjects) => {
     case 'IPEntity':
       return generators.generateIPEntity(classData[0], payload);
     case 'MCODeonticExpression':
-      const refAct = mediaContractualObjects[payload.act];
       return generators.generateMCODeonticExpression(
         classData[0],
         payload,
@@ -35,16 +35,42 @@ const generator = (classData, payload, mediaContractualObjects) => {
   }
 };
 
-const getMCOFromContract = (mediaContractualObjects) => {
-  const jsonLDGraph = {};
+const jsonld2turtle = (jsonldString, store, uri) => {
+  return new Promise((resolve) => {
+    rdf.parse(jsonldString, store, uri, 'application/ld+json', (e) => {
+      if (e) {
+        console.log('Parse Error! ');
+        return resolve(e);
+      }
+      rdf.serialize(null, store, uri, 'text/turtle', (e, s) => {
+        if (e) {
+          console.log('Serialize Error! ');
+          return resolve(e);
+        }
+        return resolve(s);
+      });
+    });
+  });
+};
+
+const getMCOFromContract = async (mediaContractualObjects, contextObj) => {
+  const jsonLD = { '@context': contextObj, '@graph': [] };
 
   // Search for all objects
   Object.keys(mediaContractualObjects).forEach((id) => {
     const object = mediaContractualObjects[id];
-    console.log(generator(lut[object.class], object, mediaContractualObjects));
+    jsonLD['@graph'].push(generator(lut[object.class], object));
   });
 
-  return jsonLDGraph;
+  const store = rdf.graph();
+
+  const ttl = await jsonld2turtle(
+    JSON.stringify(jsonLD),
+    store,
+    'http://mpeg.org/'
+  );
+
+  return ttl;
 };
 
 module.exports = { getMCOFromContract };

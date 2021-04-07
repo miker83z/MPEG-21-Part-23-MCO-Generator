@@ -29,7 +29,7 @@ const generateMCODeonticExpression = (classData, payload, actionType) => {
         case 'Prohibition':
           lutTemp = 'mco-core:forbidsaction';
           break;
-        case 'Permission':
+        case 'MCOPermission':
           lutTemp = 'mco-core:permitsaction';
           break;
         case 'Obligation':
