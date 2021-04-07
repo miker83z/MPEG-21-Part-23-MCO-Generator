@@ -1,0 +1,7 @@
+{
+  "identifier": "@id",
+  "start": "avco:start",
+  "end": "avco:end",
+  "duration": "avco:duration",
+  "onTimeline": "avco:ontimeline"
+}

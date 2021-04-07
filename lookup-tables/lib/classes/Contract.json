@@ -1,0 +1,15 @@
+{
+  "identifier": "@id",
+  "metadata": "dc:description",
+  "parties": "mco-core:hasparty",
+  "governingLaw": "mco-core:hasgoverninglaw",
+  "court": "mco-core:hascourt",
+  "isCourtJurisdictionExclusive": "mco-core:iscourtjurisdictionexclusive",
+  "textVersion": "mco-core:textversion",
+  "encryptedTextVersion": "mco-core:encryptedcontractpart",
+  "supersedes": "mco-core:supersedes",
+  "cancels": "mco-core:cancels",
+  "isAmendmentOf": "mco-core:isamendmentof",
+  "prevailsOver": "mco-core:prevailsover",
+  "signatories": "mco-core:issignedby"
+}

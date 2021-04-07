@@ -1,0 +1,16 @@
+{
+  "identifier": "@id",
+  "metadata": "dc:description",
+  "socialTag": "mvco:hassocialtag",
+  "isDigital": "avco:isdigital",
+  "rightsOwners": "mvco:hasrightsowner",
+  "isMadeUpOf": "mvco:ismadeupof",
+  "resultedFrom": "mvco:resultedfrom",
+  "isAudio": "avco:isaudio",
+  "segments": "avco:hassegment",
+  "tracks": "avco:hastrack",
+  "interval": "avco:interval",
+  "segmentOf": "avco:segmentof",
+  "contains": "avco:contains",
+  "onTrack": "avco:ontrack"
+}

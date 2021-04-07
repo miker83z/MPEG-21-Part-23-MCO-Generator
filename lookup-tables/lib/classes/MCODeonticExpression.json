@@ -1,0 +1,14 @@
+{
+  "identifier": "@id",
+  "textClauses": "mco-core:implements",
+  "metadata": "dc:description",
+  "issuedIn": "mco-core:issuedin",
+  "act": "mco-core:forbidsaction",
+  "actObjects": "mco-core:actedover",
+  "constraints": "mco-core:hasrequired",
+  "issuer": "mvco:issuedby",
+  "percentage": "mco-ipre:haspercentage",
+  "incomePercentage": "mco-ipre:hasincomepercentage",
+  "isExclusive": "mco-ipre:isexclusive",
+  "hasSublicenseRight": "mco-ipre:hassublicenseright"
+}

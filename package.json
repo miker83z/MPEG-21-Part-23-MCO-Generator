@@ -1,0 +1,23 @@
+{
+  "name": "mco-generator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miker83z/curly-octo-engine.git"
+  },
+  "author": "Mirko Zichichi <mikerz83@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miker83z/curly-octo-engine/issues"
+  },
+  "homepage": "https://github.com/miker83z/curly-octo-engine#readme",
+  "dependencies": {
+    "@frogcat/ttl2jsonld": "0.0.6",
+    "command-line-args": "^5.1.1"
+  }
+}
